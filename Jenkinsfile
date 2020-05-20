@@ -27,7 +27,7 @@ pipeline {
         stage('Site is Live') {
             steps {
                 sh 'echo "Checking if Site is Live..."'
-                bash '''
+                sh '''
                         #!/bin/bash
                         url='http://jenkins-imyke.s3-website.us-west-2.amazonaws.com'
                         attempts=5
@@ -35,8 +35,8 @@ pipeline {
                         online=false
 
                         echo "Checking status of $url."
-
-                        for (( i=1; i<=$attempts; i++ ))
+                        
+                        for i in $(seq 1 $attempts)
                         do
                             code=`curl -sL --connect-timeout 20 --max-time 30 -w "%{http_code}\\n" "$url" -o /dev/null`
 

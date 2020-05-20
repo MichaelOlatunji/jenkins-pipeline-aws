@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sh 'echo "Checking if Site is Live..."'
                 sh '''
-                        #!/bin/bash
+                        #!/bin/sh
                         url='http://jenkins-imyke.s3-website.us-west-2.amazonaws.com'
                         attempts=5
                         timeout=5

@@ -1,15 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Upload to AWS') {
             steps {
-                sh 'echo "Hello World"'
-                sh '''
+                withAWS(region: 'us-west-2', credentials: 'aws-access-token'){
+                    sh '''
+                
+                    echo "Uploading content to AWS S3"
+                    echo "S3 Bucket Name: jenkins-imyke"
+                    echo "Hosts a static website"
 
-                    echo "Multiline shell works too"
-                    ls -lah
-    
                     '''
+                    s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, bucket: 'jenkins-imyke', file: 'index.html')
+                }
+                
             }
         }
     }

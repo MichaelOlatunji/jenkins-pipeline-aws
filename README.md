@@ -9,4 +9,4 @@ You will need to install Jenkins and a few plugins to assist your deployment "Je
 
 ## Prerequisite
 1. A little knowledge of basic commands in Unix terminal.
-2. Understanding of deployment strategies (using Jenkins and Blue ocean plugin)
+2. Understanding of deployment strategies (using Jenkins and Blue ocean plugin).
